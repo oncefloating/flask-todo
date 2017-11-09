@@ -1,18 +1,24 @@
 <table class="table">
     <thead>
         <tr>
-             <td>Content</td>
-             <td>Time</td>
-             <td>Status</td>
-       </tr>
+            <td>Content</td>
+            <td>Time</td>
+        <td>Operation</td>
+    </tr>
     </thead>
     <tbody>
     {% for t in todos %}
-        <tr>
-            <td>{{ t.content }}</td>
-            <td>{{ t.time }}</td>
-            <td>{{ t.status }}</td>
-       </tr>
+    <tr>
+        <td>{{ t.content }}</td>
+        <td>{{ t.time }}</td>
+        <td>
+        {% if t.status == 0 %}
+         <a href="/done/{{ t.id }}" class="btn btn-primary">Done</a>
+        {% else %}
+         <a href="/undone/{{ t.id }}" class="btn btn-primary">Undone</a>
+        {% endif %}
+        </td>
+    </tr>
     {% endfor %}
     </tbody>
 </table>
