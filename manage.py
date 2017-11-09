@@ -9,7 +9,7 @@ manager.add_command("runserver",
 
 @manager.command
 def save_todo():
-    todo = Todo(content='my first todo list.')
+    todo = Todo(content='#5 todo list.')
     todo.save()
 
 if __name__ == '__main__':
